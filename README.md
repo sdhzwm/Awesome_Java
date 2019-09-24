@@ -95,7 +95,7 @@
 
 ### MySQL
 
-- [MySQL基础](/03：MySQL/01MySQL基础.md)
+- [MySQL基础](/doc/03：MySQL/01MySQL基础.md)
 
 
 ### Redis
