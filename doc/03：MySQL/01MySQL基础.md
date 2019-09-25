@@ -55,57 +55,62 @@ alias mysqlstop='sudo /usr/local/mysql/support-files/mysql.server stop'
 ## 3. DDL:操作数据库、表
 
 ### 1. 操作数据库：CRUD
+
 1. C(Create):创建
-	* 创建数据库：
-		```sql
-			create database 数据库名称;
-		```
-		
-	* 创建数据库，判断不存在，再创建：
-		```sql
-			create database if not exists 数据库名称;
-		```
-	* 创建数据库，并指定字符集
-		```sql
-			create database 数据库名称 character set 字符集名;
-		```
-- 练习： 创建db4数据库，判断是否存在，并制定字符集为gbk
+
 	```sql
-	create database if not exists db4 character set gbk;
+	#创建数据库：
+
+	create database 数据库名称;
+			
+	#创建数据库，判断不存在，再创建：
+
+	create database if not exists 数据库名称;
+
+	#创建数据库，并指定字符集
+
+	create database 数据库名称 character set 字符集名;
+		
+	```
+
+	练习： 创建db4数据库，判断是否存在，并制定字符集为gbk
+
+	```sql
+		create database if not exists db4 character set gbk;
 	```
 
 2. R(Retrieve)：查询
-	* 查询所有数据库的名称:
-		```sql
-			show databases;
-		```			
-	* 查询某个数据库的字符集:查询某个数据库的创建语句
-		```sql
-			show create database 数据库名称;
-		```
+
+	```sql
+	# 查询所有数据库的名称:
+	show databases;
+			
+	# 查询某个数据库的字符集:查询某个数据库的创建语句
+
+	show create database 数据库名称;
+	```
 3. U(Update):修改
-	* 修改数据库的字符集
-		```sql
-			alter database 数据库名称 character set 字符集名称;
-		```
+	
+	```sql
+	#修改数据库的字符集
+	alter database 数据库名称 character set 字符集名称;
+	```
 4. D(Delete):删除
-	* 删除数据库
-		```sql
-			drop database 数据库名称;
-		```
-	* 判断数据库存在，存在再删除
-		```sql
-			drop database if exists 数据库名称;
-		```
+	
+	```sql
+	#删除数据库
+		drop database 数据库名称;
+	#判断数据库存在，存在再删除
+		drop database if exists 数据库名称;
+	```
 5. 使用数据库
-	* 查询当前正在使用的数据库名称
-		```sql
-			* select database();
-		```
-	* 使用数据库
-		```sql
-			* use 数据库名称;
-		```
+	
+	```sql
+	# 查询当前正在使用的数据库名称
+	select database();
+	#使用数据库
+	use 数据库名称;
+	```
 
 
 ### 2. 操作表
@@ -153,14 +158,14 @@ alias mysqlstop='sudo /usr/local/mysql/support-files/mysql.server stop'
 			create table 表名 like 被复制的表名;
 		```	  	
 2. R(Retrieve)：查询
-	* 查询某个数据库中所有的表名称
-		```sql
-			show tables;
-		```
-	* 查询表结构
-		```sql	
-			desc 表名;
-		```
+
+	```sql
+	#查询某个数据库中所有的表名称
+		show tables;
+
+	#查询表结构
+		desc 表名;
+	```
 3. U(Update):修改
 	1. 修改表名
 		```sql
