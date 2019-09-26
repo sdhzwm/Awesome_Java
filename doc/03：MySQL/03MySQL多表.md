@@ -30,8 +30,8 @@ insert into emp(name,gender,salary,join_date,dept_id) values('蜘蛛精','女 ',
 
 多表查询的作用
 
-比如:我们想查询孙悟空的名字和他所在的部门的名字，则需要使用多表查询。
-如果一条 SQL 语句查询多张表，因为查询结果在多张不同的表中。每张表取 1 列或多列。
+> 比如:我们想查询孙悟空的名字和他所在的部门的名字，则需要使用多表查询。
+> 如果一条 SQL 语句查询多张表，因为查询结果在多张不同的表中。每张表取 1 列或多列。
 
 ![](https://imagerepos.oss-cn-beijing.aliyuncs.com/images/20190926155729.png)
 
@@ -48,7 +48,7 @@ insert into emp(name,gender,salary,join_date,dept_id) values('蜘蛛精','女 ',
 
 ####  如何清除笛卡尔积现象的影响
 
-我们发现不是所有的数据组合都是有用的，只有员工表.dept_id = 部门表.id 的数据才是有用的。所以需要通过条件过滤掉没用的数据。
+> 我们发现不是所有的数据组合都是有用的，只有员工表.dept_id = 部门表.id 的数据才是有用的。所以需要通过条件过滤掉没用的数据。
 
 ```sql
 -- 设置过滤条件 Column 'id' in where clause is ambiguous select * from emp,dept where id=5;
@@ -108,7 +108,8 @@ select * from emp e inner join dept d on e.`dept_id` = d.`id`;
 
 - 左外连接:使用 LEFT OUTER JOIN ... ON，OUTER 可以省略
 
-用左边表的记录去匹配右边表的记录，如果符合条件的则显示;否则，显示 NULL 可以理解为:在内连接的基础上保证左表的数据全部显示(左表是部门，右表员工)
+- 用左边表的记录去匹配右边表的记录，如果符合条件的则显示;否则，显示 NULL 
+- 可以理解为:在内连接的基础上保证左表的数据全部显示(左表是部门，右表员工)
 
 ```sql
 -- 在部门表中增加一个销售部
@@ -126,7 +127,8 @@ select * from dept d left join emp e on d.`id` = e.`dept_id`;
 ### 右外连接
 - 右外连接:使用 RIGHT OUTER JOIN ... ON，OUTER 可以省略
 
-用右边表的记录去匹配左边表的记录，如果符合条件的则显示;否则，显示 NULL 可以理解为:在内连接的基础上保证右表的数据全部显示
+- 用右边表的记录去匹配左边表的记录，如果符合条件的则显示;否则，显示 NULL 
+- 可以理解为:在内连接的基础上保证右表的数据全部显示
 
 ```sql
 -- 在员工表中增加一个员工
@@ -205,7 +207,8 @@ select * from emp where dept_id in (select id from dept where name in('开发部
 
 #### 子查询的结果是多行多列
 
-子查询结果只要是多列，肯定在 FROM 后面作为表,子查询作为表需要取别名，否则这张表没有名称则无法访问表中的字段
+- 子查询结果只要是多列，肯定在 FROM 后面作为表
+- 子查询作为表需要取别名,否则这张表没有名称则无法访问表中的字段
 
 ```sql
 SELECT 查询字段 FROM (子查询) 表别名 WHERE 条件;
@@ -225,5 +228,5 @@ join_date >='2011-1-1';
 ```
 #### 子查询小结
 
-子查询结果只要是单列，则在 WHERE 后面作为条件
-子查询结果只要是多列，则在 FROM 后面作为表进行二次查询
+- 子查询结果只要是单列，则在 WHERE 后面作为条件
+- 子查询结果只要是多列，则在 FROM 后面作为表进行二次查询
