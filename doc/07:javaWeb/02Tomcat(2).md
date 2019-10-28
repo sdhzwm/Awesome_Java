@@ -1,4 +1,6 @@
-### WEB应用部署目录结构
+# Tomcat Web部署
+
+## WEB应用部署目录结构
 
 我们的应用程序一般会打包成归档格式（.war），然后放到Tomcat的应用程序部署目录。而webapp有特定的组织格式，是一种层次型目录结构，通常包含了servlet代码文件、HTML/jsp页面文件、类文件、部署描述符文件等等，相关说明如下：
 
@@ -16,7 +18,7 @@
 
 ```
 
-### Tomcat基本框架及相关配置
+## Tomcat基本框架及相关配置
 
 Tomcat可以按功能划分许多不同的组件，这些组件都可以通过`/conf/server.xml`文件中可定义和配置，包括`Server, Service, Connector, Engine, Cluster, Host, Alias, Context, Realm, Valve, Manager, Listener, Resources, ResourceEnvRef, WatchedResource, Store, Transaction, Channel, Membership, Transport, Member, ClusterListener等`，一般可分为以下四类：
 
@@ -34,7 +36,7 @@ Tomcat可以按功能划分许多不同的组件，这些组件都可以通过`/
 
 
 
-#### Server组件
+### Server组件
 
 Server（服务器）表示Tomcat的一个实例，因此，它必须是/conf / server.xml配置文件中的单个最外层元素，它的属性表示servlet容器的整体特性。通常一个JVM只能包含一个Tomcat实例。
 
@@ -42,7 +44,7 @@ Server（服务器）表示Tomcat的一个实例，因此，它必须是/conf / 
 
 
 
-#### Service组件
+### Service组件
 
 Service（服务）主要用于关联一个Engine和与此Engine相关的Connector，每个Connector通过一个特定的端口和协议接收请求，并将其转发至关联的Engine进行处理。
 
@@ -52,7 +54,7 @@ Service（服务）主要用于关联一个Engine和与此Engine相关的Connect
 
 
 
-#### Connector组件
+### Connector组件
 
 如上面所述，Connector（连接器）通过一个特定的端口接收特定协议的客户端请求，并将其转发至关联的Engine进行处理。一个Engine可以配置多个连接器，但这些连接器必须使用不同的端口。
 
@@ -98,7 +100,7 @@ AJP协议是基于二进制的格式在Web服务器和Tomcat之间传输数据�
 
 8. acceptCount：设置等待队列的最大长度；通常在tomcat所有处理线程均处于繁忙状态时，新发来的请求将被放置于等待队列中；
 
-#### Engine组件
+### Engine组件
 
 Engine（引擎）表示与特定Service相关联的整个请求处理机制，即Servlet容器引擎。它接收和处理来自一个或多个连接器的所有请求，并检查每一个请求的HTTP首部信息以辨别此请求应该发往哪个Host或Context，并将完成的响应返回到连接器，以便最终传输回客户端。
 
@@ -114,7 +116,7 @@ Engine（引擎）表示与特定Service相关联的整个请求处理机制，�
 
     
 
-#### Host组件
+### Host组件
 
 Host（虚拟主机）类似于Apache中的虚拟主机，但在Tomcat中只支持基于FQDN的"虚拟主机"。Host位于Engine容器中用于接收请求并进行相应处理，它是服务器（例如`www.mycompany.com`）的网络名称与运行Tomcat的特定服务器的关联。
 
@@ -134,7 +136,7 @@ Host（虚拟主机）类似于Apache中的虚拟主机，但在Tomcat中只支�
 4. unpackWars：在启用此webapps时是否对WAR格式的归档文件先进行展开；默认为true。如默认配置中定义了一个主机名为"localhost"的Host，而webapps目录为$ CATALINA_BASE相对的"webapps"，即前面说到的默认目录，也可用绝对路径来配置其他目录。
 
        
-#### Context组件
+### Context组件
 
 Context（上下文）表示在特定虚拟主机中运行的Web应用程序，一个Context对应一个Web应用程序，而里面的Wrapper可以理解为一个个Servlet程序。
 
@@ -156,7 +158,7 @@ Context需要根据其定义的上下文路径（path）匹配请求URI的最长
 
      
 
-#### Realm组件
+### Realm组件
 
 Realm（领域）表示分配给这些用户的用户名，密码和角色（类似于Unix组）的"数据库"。一个Realm（领域）表示一个安全上下文，它是一个授权访问某个给定Context的用户列表和某用户所允许切换的角色相关定义的列表。
 
@@ -180,7 +182,7 @@ Catalina容器（Engine，Host或Context）可以包含不超过一个Realm元�
 可以看到默认配置文件中定义了一个LockOutRealm并嵌套一个UserDatabaseRealm的Realm来通过tomcat-user.xml文件实现用户认证。
 
 
-#### Valve组件
+### Valve组件
 
 Valve（阀门）类似于过滤器，用来拦截请求并在将其转至目标之前进行某种处理操作；它可以工作于Engine和Host/Context之间、Host和Context之间以及Context和Web应用程序的某资源之间。
 
@@ -209,7 +211,7 @@ Valve常被用来记录客户端请求、客户端IP地址和服务器等信息�
 
       
 
-####  其他组件
+###  其他组件
 
 **1、Logger**
 
