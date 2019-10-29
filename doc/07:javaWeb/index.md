@@ -4,11 +4,14 @@ toc:
   depth_from:2
   depth_to:4
   ordered:false
-  
+ebook:
+  theme: github-light.css
+  title: tomcat
+  author: wm
+  epub:
+    no-default-epub-cover: true
+    pretty-print: true
 ---
-
-# 文章
-
 
 [TOC]
 

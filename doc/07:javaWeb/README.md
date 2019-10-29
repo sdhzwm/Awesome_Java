@@ -1,43 +1,41 @@
----
-toc: 'depth_from:2 depth_to:4 ordered:false'
----  
+
+# Readme
   
+本文包含tomcat和tomcat web的基础部署以及部分的Servlet的用法
+- [Readme](#readme)
+- [Tomcat](#tomcat)
+  - [Tomcat是什么](#tomcat%e6%98%af%e4%bb%80%e4%b9%88)
+  - [Tomcat与Java技术](#tomcat%e4%b8%8ejava%e6%8a%80%e6%9c%af)
+  - [Tomcat基于Mac安装及部署](#tomcat%e5%9f%ba%e4%ba%8emac%e5%ae%89%e8%a3%85%e5%8f%8a%e9%83%a8%e7%bd%b2)
+    - [下载](#%e4%b8%8b%e8%bd%bd)
+    - [设置本地放置路径](#%e8%ae%be%e7%bd%ae%e6%9c%ac%e5%9c%b0%e6%94%be%e7%bd%ae%e8%b7%af%e5%be%84)
+    - [启动Tomcat](#%e5%90%af%e5%8a%a8tomcat)
+    - [关闭tomcat](#%e5%85%b3%e9%97%adtomcat)
+    - [Tomcat的目录结构及作用](#tomcat%e7%9a%84%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84%e5%8f%8a%e4%bd%9c%e7%94%a8)
+    - [注意事项：](#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9)
+    - [配置java web服务器](#%e9%85%8d%e7%bd%aejava-web%e6%9c%8d%e5%8a%a1%e5%99%a8)
+- [Tomcat Web部署](#tomcat-web%e9%83%a8%e7%bd%b2)
+  - [WEB应用部署目录结构](#web%e5%ba%94%e7%94%a8%e9%83%a8%e7%bd%b2%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84)
+  - [Tomcat基本框架及相关配置](#tomcat%e5%9f%ba%e6%9c%ac%e6%a1%86%e6%9e%b6%e5%8f%8a%e7%9b%b8%e5%85%b3%e9%85%8d%e7%bd%ae)
+    - [Server组件](#server%e7%bb%84%e4%bb%b6)
+    - [Service组件](#service%e7%bb%84%e4%bb%b6)
+    - [Connector组件](#connector%e7%bb%84%e4%bb%b6)
+    - [Engine组件](#engine%e7%bb%84%e4%bb%b6)
+    - [Host组件](#host%e7%bb%84%e4%bb%b6)
+    - [Context组件](#context%e7%bb%84%e4%bb%b6)
+    - [Realm组件](#realm%e7%bb%84%e4%bb%b6)
+    - [Valve组件](#valve%e7%bb%84%e4%bb%b6)
+    - [其他组件](#%e5%85%b6%e4%bb%96%e7%bb%84%e4%bb%b6)
+- [Servlet](#servlet)
+  - [什么是Servlet](#%e4%bb%80%e4%b9%88%e6%98%afservlet)
+  - [Servlet工作模式](#servlet%e5%b7%a5%e4%bd%9c%e6%a8%a1%e5%bc%8f)
+  - [Servlet的API概览](#servlet%e7%9a%84api%e6%a6%82%e8%a7%88)
+  - [Servlet 的主要类型](#servlet-%e7%9a%84%e4%b8%bb%e8%a6%81%e7%b1%bb%e5%9e%8b)
+  - [Servlet 的使用方法](#servlet-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95)
+  - [Servlet 的工作原理](#servlet-%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86)
   
-#  文章
-  
-  
-- [文章](#文章 )
-- [Tomcat](#tomcat )
-  - [Tomcat是什么](#tomcat是什么 )
-  - [Tomcat与Java技术](#tomcat与java技术 )
-  - [Tomcat基于Mac安装及部署](#tomcat基于mac安装及部署 )
-    - [下载](#下载 )
-    - [设置本地放置路径](#设置本地放置路径 )
-    - [启动Tomcat](#启动tomcat )
-    - [关闭tomcat](#关闭tomcat )
-    - [Tomcat的目录结构及作用](#tomcat的目录结构及作用 )
-    - [注意事项：](#注意事项 )
-    - [配置java web服务器](#配置java-web服务器 )
-- [Tomcat Web部署](#tomcat-web部署 )
-  - [WEB应用部署目录结构](#web应用部署目录结构 )
-  - [Tomcat基本框架及相关配置](#tomcat基本框架及相关配置 )
-    - [Server组件](#server组件 )
-    - [Service组件](#service组件 )
-    - [Connector组件](#connector组件 )
-    - [Engine组件](#engine组件 )
-    - [Host组件](#host组件 )
-    - [Context组件](#context组件 )
-    - [Realm组件](#realm组件 )
-    - [Valve组件](#valve组件 )
-    - [其他组件](#其他组件 )
-- [Servlet](#servlet )
-  - [什么是Servlet](#什么是servlet )
-  - [Servlet工作模式](#servlet工作模式 )
-  - [Servlet的API概览](#servlet的api概览 )
-  - [Servlet 的主要类型](#servlet-的主要类型 )
-  - [Servlet 的使用方法](#servlet-的使用方法 )
-  - [Servlet 的工作原理](#servlet-的工作原理 )
-  
+
+
 #  Tomcat
   
   
