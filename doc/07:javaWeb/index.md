@@ -10,7 +10,6 @@ ebook:
   author: wm
   epub:
     no-default-epub-cover: true
-    pretty-print: true
 ---
 
 [TOC]
